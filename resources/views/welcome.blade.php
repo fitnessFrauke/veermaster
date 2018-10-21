@@ -94,5 +94,8 @@
                 </div>
             </div>
         </div>
+        @foreach ($products as $product)
+    <p>{{ $product->title }}</a>
+@endforeach
     </body>
 </html>

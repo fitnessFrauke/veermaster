@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = \App\Product::all();
+    return view('welcome', ['products' => $products]);
 });
 
 Auth::routes();
