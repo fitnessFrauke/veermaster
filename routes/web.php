@@ -11,10 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    $products = \App\Product::all();
-    return view('welcome', ['products' => $products]);
+Route::get('/', 'ProductController@getAll');
+
+Route::get('/submit', function () {
+    return view('submit');
 });
+
+Route::get('/edit/{id}', function($id) {
+    $product = \App\Product::findOrFail($id);
+    return view('edit', ["product"=>$product]);
+});
+
+use Illuminate\Http\Request;
+
+Route::post('create', 'ProductController@create');
+
+Route::get('delete/{id}','ProductController@delete');
+
+Route::post('update/{id}', 'ProductController@update');
 
 Auth::routes();
 
