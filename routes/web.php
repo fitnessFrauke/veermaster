@@ -10,8 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
 
-Route::get('/', 'ProductController@getAll');
+/** products */
+
+Route::get('/', 'OrderController@openCreateContext');
 
 Route::get('/submit', function () {
     return view('submit');
@@ -22,7 +25,7 @@ Route::get('/edit/{id}', function($id) {
     return view('edit', ["product"=>$product]);
 });
 
-use Illuminate\Http\Request;
+Route::get('/products', 'ProductController@getAll');
 
 Route::post('create', 'ProductController@create');
 
@@ -30,6 +33,14 @@ Route::get('delete/{id}','ProductController@delete');
 
 Route::post('update/{id}', 'ProductController@update');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+/** restaurants */
+
+Route::get('/restaurants', 'RestaurantController@getAll');
+
+Route::post('create/restaurant', 'RestaurantController@create');
+
+/** auth*/
+
+Auth::routes();

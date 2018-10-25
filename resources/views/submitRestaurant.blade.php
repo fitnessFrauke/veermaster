@@ -1,9 +1,7 @@
-@extends('layouts.app')
-@section('content')
-<div class="container">
+<div class="container submitRestaurant">
+<h5>Add new restaurant</h5>
     <div class="row">
-    <h1>Add new product</h1>
-    <form action="/create" method="post">
+    <form action="/create/restaurant" method="post">
         @if($errors->any())
         Please fix follows errors
         @endif
@@ -20,4 +18,3 @@
          </form>
     </div>
 </div>
-@endsection

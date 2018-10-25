@@ -11,12 +11,16 @@ class ProductController extends Controller {
 
     public function getAll() {
         $products = \App\Product::all();
-        return view('welcome', ['products' => $products]);
+        return view('products', ['products' => $products]);
+    }
+
+    public function getAllProductItems() {
+        return \App\Product::all();
     }
 
     public function delete($id) {
         DB::delete('delete from products where id = ?', [$id]);
-        return redirect('/');
+        return redirect()->action('ProductController@getAll');
     }
 
     public function create(Request $request) {
@@ -30,7 +34,7 @@ class ProductController extends Controller {
     
         $product->save();
     
-        return redirect('/');
+        return redirect()->action('ProductController@getAll');
     }
 
     public function update($id, Request $request) {
@@ -42,7 +46,7 @@ class ProductController extends Controller {
 
         $input = $request->all();
         $product->fill($input)->save();
-        return redirect('/');
+        return redirect()->action('ProductController@getAll');
     }
 
 }

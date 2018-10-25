@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Veermaster</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -64,12 +64,6 @@
         </style>
     </head>
     <body>
-        @include('submit')
-
-        @foreach ($products as $product)
-            <p>{{ $product->title }}</a>
-            <a href='delete/{{$product->id}}'>Delete</a>
-            <a href='edit/{{$product->id}}'>Edit</a>
-        @endforeach
+    @extends('layouts.app')
     </body>
 </html>

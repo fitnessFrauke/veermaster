@@ -34,10 +34,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Products</a>
+                            <a class="nav-link" href="/products">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Restaurants</a>
+                            <a class="nav-link" href="/restaurants">Restaurants</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Bills of delivery & Bills</a>
@@ -77,6 +77,8 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('restaurant')
+            @yield('startPage')
         </main>
     </div>
 </body>
